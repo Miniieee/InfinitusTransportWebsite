@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request a Quote</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Left side: Form -->
+    <div class="form-section">
+      <h1>Request a Quote</h1>
+      <form 
+        action="https://api.web3forms.com/submit" 
+        method="POST" 
+        class="quote-form"
+      >
+        <!-- REQUIRED: Your Web3Forms access key -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+
+        <!-- OPTIONAL: Where to redirect upon successful submission -->
+        <input type="hidden" name="redirect" value="thank-you.html" />
+
+        <!-- Form Fields -->
+        <div class="field">
+          <label for="pickupLocation">From (Post code / Business name)</label>
+          <input type="text" id="pickupLocation" name="pickupLocation" required />
+        </div>
+
+        <div class="field">
+          <label for="destinationLocation">To (Post code / Business name)</label>
+          <input type="text" id="destinationLocation" name="destinationLocation" required />
+        </div>
+
+        <div class="field">
+          <label for="dateNeeded">When? (Date)</label>
+          <input type="date" id="dateNeeded" name="dateNeeded" required />
+        </div>
+
+        <div class="field">
+          <label for="timeNeeded">What time?</label>
+          <input type="time" id="timeNeeded" name="timeNeeded" required />
+        </div>
+
+        <div class="field">
+          <label for="itemsTransport">What needs transporting?</label>
+          <textarea id="itemsTransport" name="itemsTransport" rows="2" required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="weight">Weight (max 1000kg)</label>
+          <input type="number" id="weight" name="weight" min="1" max="1000" step="1" required />
+        </div>
+
+        <div class="field">
+          <label for="specialInstructions">Any special instructions?</label>
+          <textarea id="specialInstructions" name="specialInstructions" rows="2"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="senderContact">Contact of person giving the goods (Name & Phone)</label>
+          <input type="text" id="senderContact" name="senderContact" required />
+        </div>
+
+        <div class="field">
+          <label for="receiverContact">Contact receiving goods (Name & Phone)</label>
+          <input type="text" id="receiverContact" name="receiverContact" required />
+        </div>
+
+        <!-- Submit -->
+        <button type="submit">Request Quote</button>
+      </form>
+    </div>
+
+    <!-- Right side: Image or illustration -->
+    <div class="image-section">
+      <!-- Replace with your desired image or an illustration -->
+      <img 
+        src="https://via.placeholder.com/600x400?text=Transport+Illustration" 
+        alt="Transportation illustration" 
+      />
+    </div>
+  </div>
+</body>
+</html>
