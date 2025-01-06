@@ -10,18 +10,20 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 2) BODY BACKGROUND AND FONT SETTINGS */
+/* BODY
+   Remove the gradient so each section stands out with its own background.
+   We'll keep the text color white. 
+*/
 body {
-  font-family: 'Helvetica', Arial, sans-serif;
-  /* Example gradient background */
-  background: linear-gradient(to bottom, #10021b 0%, #361c47 100%);
+  background-color: #111;
   color: #fff;
+  font-family: 'Helvetica', Arial, sans-serif;
   min-height: 100vh;
 }
 
-/* 3) HEADER STYLES */
+/* 2) HEADER STYLES */
 header {
-  background-color: #3b5998;
+  background-color: #2c2f86;
   padding: 1rem;
   position: sticky;
   top: 0;
@@ -79,7 +81,22 @@ nav {
   background-color: #0056b3;
 }
 
-/* 4) MAIN CONTENT SECTIONS */
+/* 3) MAIN CONTENT SECTIONS
+   Each has a distinct background color. 
+   Tweak the colors to your liking.
+*/
+#home {
+  background-color: #1e1a2c; /* Dark purple for Home */
+}
+
+#about {
+  background-color: #2c2f86; /* Slightly lighter or different color for About */
+}
+
+#contact {
+  background-color: #361c47; /* Another color for Contact */
+}
+
 section {
   max-width: 1200px;
   margin: 0 auto;
@@ -133,7 +150,7 @@ section p {
   flex: 1;
 }
 
-/* 5) THE MODAL OVERLAY */
+/* 4) THE MODAL OVERLAY */
 .modal {
   display: none; /* Hidden by default */
   position: fixed;
@@ -171,7 +188,7 @@ section p {
   color: #000;
 }
 
-/* 6) FORM LAYOUT INSIDE THE MODAL */
+/* 5) FORM LAYOUT INSIDE THE MODAL */
 .row {
   display: flex;
   flex-wrap: wrap;
