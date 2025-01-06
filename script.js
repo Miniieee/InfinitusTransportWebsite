@@ -31,7 +31,6 @@ const pickupRadioButtons = document.querySelectorAll('input[name="pickupDateType
 const pickupSingleDateTime = document.getElementById("pickupSingleDateTime");
 const pickupBetweenDateTime = document.getElementById("pickupBetweenDateTime");
 
-// Show/hide date/time fields based on selected radio
 function updatePickupDateTime(type) {
   if (type === "Between") {
     pickupSingleDateTime.style.display = "none";
@@ -42,7 +41,6 @@ function updatePickupDateTime(type) {
   }
 }
 
-// Add event listeners to each pickup radio
 pickupRadioButtons.forEach((radio) => {
   radio.addEventListener("change", (e) => {
     updatePickupDateTime(e.target.value);
@@ -70,7 +68,6 @@ function updateDeliveryDateTime(type) {
   }
 }
 
-// Add event listeners for delivery radio
 deliveryRadioButtons.forEach((radio) => {
   radio.addEventListener("change", (e) => {
     updateDeliveryDateTime(e.target.value);

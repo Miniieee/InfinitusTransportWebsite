@@ -66,12 +66,13 @@ body {
 /* Two-column layout */
 .row {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .column {
-  flex: 1 1 300px; 
+  flex: 1 1 300px;
   min-width: 0;
   padding: 0.5rem 0;
 }
@@ -88,9 +89,13 @@ label {
   font-weight: normal;
 }
 
-input {
+input,
+textarea,
+select {
   padding: 0.5rem;
   width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 /* Grouped radio buttons (At, Before, Between) */
@@ -151,6 +156,19 @@ input {
 .datetime-between .datetime-group input[type="date"],
 .datetime-between .datetime-group input[type="time"] {
   width: 130px; /* adjust as needed */
+}
+
+/* Field grouping for phone */
+.phone-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+.phone-wrapper select {
+  width: 120px;
+  flex-shrink: 0;
+}
+.phone-wrapper input[type="tel"] {
+  flex: 1 1 auto;
 }
 
 /* Buttons at the bottom */

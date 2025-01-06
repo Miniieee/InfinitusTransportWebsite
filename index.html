@@ -3,56 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Post Load Popup - At/Before/Between</title>
+  <title>Post Load + Request a Quote</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- Button to open the modal -->
-  <button id="openModalBtn">Post Load</button>
+  <button id="openModalBtn">Request a Quote</button>
 
   <!-- The Modal (Popup) -->
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span> <!-- Close "X" -->
 
-      <!-- Wrap in a form if you want actual submission -->
-      <form action="YOUR_FORM_HANDLER" method="POST" id="loadForm">
-        <h2>Post Load Details</h2>
-        
-        <!-- Two-column layout for Pickup (left) / Delivery (right) -->
+      <!-- Wrap in a form. Now integrated with Web3Forms -->
+      <form 
+        action="https://api.web3forms.com/submit" 
+        method="POST" 
+        id="loadForm"
+      >
+        <!-- REQUIRED: Your Web3Forms access key -->
+        <input 
+          type="hidden" 
+          name="access_key" 
+          value="a8435c2d-fe15-45f3-8ce7-17a3b4a95a87" 
+        />
+
+        <!-- OPTIONAL: Where to redirect upon successful submission -->
+        <input 
+          type="hidden" 
+          name="redirect" 
+          value="bagyi.tomi932@gmail.com" 
+        />
+
+        <h2>Request a Quote / Post Load</h2>
+
+        <!-- 1. FROM / PICKUP DETAILS -->
         <div class="row">
-          <!-- Pickup Details -->
           <div class="column">
-            <h4>Pickup Details</h4>
+            <h4>Pickup / From</h4>
             
-            <label for="pickupContact">Search Contact or Location *</label>
+            <!-- FROM location field (replacing "pickupContact") -->
+            <label for="pickupLocation">From (Post code / Business name) *</label>
             <input 
               type="text" 
-              id="pickupContact" 
-              name="pickupContact" 
-              placeholder="Contacts or location (town, name)" 
+              id="pickupLocation" 
+              name="pickupLocation" 
+              placeholder="E.g. NW10 0AB or Company Name"
               required
             />
 
+            <!-- Additional info (like old 'pickupCompany' & 'pickupAddressInfo') -->
             <label for="pickupCompany">Company</label>
             <input 
               type="text" 
               id="pickupCompany" 
               name="pickupCompany" 
-              placeholder="Company Name"
+              placeholder="Pickup Company (optional)"
             />
 
-            <label for="pickupAddressInfo">Additional Address Info</label>
+            <label for="pickupAddressInfo">Address Info</label>
             <input 
               type="text" 
               id="pickupAddressInfo" 
               name="pickupAddressInfo" 
-              placeholder="Optional additional info"
+              placeholder="Optional additional details"
             />
 
-            <label>Date &amp; Time *</label>
             <!-- Radio buttons for “At” / “Before” / “Between” -->
+            <label>Date &amp; Time *</label>
             <div class="button-group">
               <label>
                 <input 
@@ -84,9 +103,9 @@
             <!-- Single date/time (shown if “At” or “Before”) -->
             <div class="datetime-group" id="pickupSingleDateTime">
               <label class="inline-label">Date:</label>
-              <input type="date" id="pickupDate" name="pickupDate" />
+              <input type="date" id="pickupDate" name="pickupDate" required/>
               <label class="inline-label">Time:</label>
-              <input type="time" id="pickupTime" name="pickupTime" />
+              <input type="time" id="pickupTime" name="pickupTime" required/>
             </div>
 
             <!-- Two date/time pairs (shown if “Between”) -->
@@ -120,37 +139,39 @@
             </div>
           </div>
 
-          <!-- Delivery Details -->
+          <!-- 2. TO / DELIVERY DETAILS -->
           <div class="column">
-            <h4>Delivery Details</h4>
+            <h4>Delivery / To</h4>
 
-            <label for="deliveryContact">Search Contact or Location *</label>
+            <!-- TO location field (replacing "deliveryContact") -->
+            <label for="destinationLocation">To (Post code / Business name) *</label>
             <input 
               type="text" 
-              id="deliveryContact" 
-              name="deliveryContact" 
-              placeholder="Contacts or location (town, name)" 
+              id="destinationLocation" 
+              name="destinationLocation" 
+              placeholder="E.g. SW1A 1AA or Company Name"
               required
             />
 
+            <!-- Additional info (like old 'deliveryCompany' & 'deliveryAddressInfo') -->
             <label for="deliveryCompany">Company</label>
             <input 
               type="text" 
               id="deliveryCompany" 
               name="deliveryCompany" 
-              placeholder="Company Name"
+              placeholder="Delivery Company (optional)"
             />
 
-            <label for="deliveryAddressInfo">Additional Address Info</label>
+            <label for="deliveryAddressInfo">Address Info</label>
             <input 
               type="text" 
               id="deliveryAddressInfo" 
               name="deliveryAddressInfo" 
-              placeholder="Optional additional info"
+              placeholder="Optional additional details"
             />
 
-            <label>Date &amp; Time *</label>
             <!-- Radio buttons for “At” / “Before” / “Between” -->
+            <label>Date &amp; Time *</label>
             <div class="button-group">
               <label>
                 <input 
@@ -182,9 +203,9 @@
             <!-- Single date/time (shown if “At” or “Before”) -->
             <div class="datetime-group" id="deliverySingleDateTime">
               <label class="inline-label">Date:</label>
-              <input type="date" id="deliveryDate" name="deliveryDate" />
+              <input type="date" id="deliveryDate" name="deliveryDate" required/>
               <label class="inline-label">Time:</label>
-              <input type="time" id="deliveryTime" name="deliveryTime" />
+              <input type="time" id="deliveryTime" name="deliveryTime" required/>
             </div>
 
             <!-- Two date/time pairs (shown if “Between”) -->
@@ -218,11 +239,209 @@
             </div>
           </div>
         </div>
-        
-        <!-- Buttons at bottom -->
+
+        <!-- 3. TRANSPORT DETAILS & WEIGHT -->
+        <div class="row">
+          <div class="column">
+            <h4>Transport Details</h4>
+
+            <label for="itemsTransport">What needs transporting? *</label>
+            <textarea 
+              id="itemsTransport" 
+              name="itemsTransport" 
+              rows="2" 
+              placeholder="e.g., Pallet of goods, boxes..."
+              required
+            ></textarea>
+
+            <label for="weight">Weight (max 1000kg) *</label>
+            <input 
+              type="number" 
+              id="weight" 
+              name="weight" 
+              min="1" 
+              max="1000" 
+              placeholder="e.g. 200"
+              required
+            />
+
+            <label for="specialInstructions">Any special instructions?</label>
+            <textarea 
+              id="specialInstructions" 
+              name="specialInstructions" 
+              rows="2"
+              placeholder="e.g., Fragile, keep upright..."
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- 4. SENDER & RECEIVER CONTACTS -->
+        <div class="row">
+          <!-- SENDER -->
+          <div class="column">
+            <h4>Sender (Giving the goods)</h4>
+
+            <label for="senderName">Name *</label>
+            <input 
+              type="text" 
+              id="senderName" 
+              name="senderName" 
+              placeholder="John Doe"
+              required
+            />
+
+            <label for="senderPhone">Phone Number *</label>
+            <div class="phone-wrapper">
+              <select 
+                id="senderCountryCode" 
+                name="senderCountryCode" 
+                required
+              >
+                <option value="+44" selected>+44 (UK)</option>
+                <option value="+1">+1 (US)</option>
+                <option value="+355">+355 (Albania)</option>
+                <option value="+374">+374 (Armenia)</option>
+                <option value="+43">+43 (Austria)</option>
+                <option value="+994">+994 (Azerbaijan)</option>
+                <option value="+375">+375 (Belarus)</option>
+                <option value="+32">+32 (Belgium)</option>
+                <option value="+387">+387 (Bosnia and Herzegovina)</option>
+                <option value="+359">+359 (Bulgaria)</option>
+                <option value="+385">+385 (Croatia)</option>
+                <option value="+357">+357 (Cyprus)</option>
+                <option value="+420">+420 (Czech Republic)</option>
+                <option value="+45">+45 (Denmark)</option>
+                <option value="+372">+372 (Estonia)</option>
+                <option value="+358">+358 (Finland)</option>
+                <option value="+33">+33 (France)</option>
+                <option value="+995">+995 (Georgia)</option>
+                <option value="+49">+49 (Germany)</option>
+                <option value="+30">+30 (Greece)</option>
+                <option value="+36">+36 (Hungary)</option>
+                <option value="+354">+354 (Iceland)</option>
+                <option value="+353">+353 (Ireland)</option>
+                <option value="+39">+39 (Italy)</option>
+                <option value="+371">+371 (Latvia)</option>
+                <option value="+370">+370 (Lithuania)</option>
+                <option value="+352">+352 (Luxembourg)</option>
+                <option value="+356">+356 (Malta)</option>
+                <option value="+373">+373 (Moldova)</option>
+                <option value="+377">+377 (Monaco)</option>
+                <option value="+382">+382 (Montenegro)</option>
+                <option value="+31">+31 (Netherlands)</option>
+                <option value="+47">+47 (Norway)</option>
+                <option value="+48">+48 (Poland)</option>
+                <option value="+351">+351 (Portugal)</option>
+                <option value="+40">+40 (Romania)</option>
+                <option value="+7">+7 (Russia)</option>
+                <option value="+378">+378 (San Marino)</option>
+                <option value="+381">+381 (Serbia)</option>
+                <option value="+421">+421 (Slovakia)</option>
+                <option value="+386">+386 (Slovenia)</option>
+                <option value="+34">+34 (Spain)</option>
+                <option value="+46">+46 (Sweden)</option>
+                <option value="+41">+41 (Switzerland)</option>
+                <option value="+90">+90 (Turkey)</option>
+                <option value="+380">+380 (Ukraine)</option>
+                <option value="+379">+379 (Vatican City)</option>
+                <!-- Add others as needed -->
+              </select>
+              <input 
+                type="tel" 
+                id="senderPhone" 
+                name="senderPhone" 
+                placeholder="7123456789"
+                required 
+              />
+            </div>
+          </div>
+
+          <!-- RECEIVER -->
+          <div class="column">
+            <h4>Receiver (Receiving the goods)</h4>
+
+            <label for="receiverName">Name *</label>
+            <input 
+              type="text" 
+              id="receiverName" 
+              name="receiverName" 
+              placeholder="Jane Smith"
+              required
+            />
+
+            <label for="receiverPhone">Phone Number *</label>
+            <div class="phone-wrapper">
+              <select 
+                id="receiverCountryCode" 
+                name="receiverCountryCode" 
+                required
+              >
+                <option value="+44" selected>+44 (UK)</option>
+                <option value="+1">+1 (US)</option>
+                <option value="+355">+355 (Albania)</option>
+                <option value="+374">+374 (Armenia)</option>
+                <option value="+43">+43 (Austria)</option>
+                <option value="+994">+994 (Azerbaijan)</option>
+                <option value="+375">+375 (Belarus)</option>
+                <option value="+32">+32 (Belgium)</option>
+                <option value="+387">+387 (Bosnia and Herzegovina)</option>
+                <option value="+359">+359 (Bulgaria)</option>
+                <option value="+385">+385 (Croatia)</option>
+                <option value="+357">+357 (Cyprus)</option>
+                <option value="+420">+420 (Czech Republic)</option>
+                <option value="+45">+45 (Denmark)</option>
+                <option value="+372">+372 (Estonia)</option>
+                <option value="+358">+358 (Finland)</option>
+                <option value="+33">+33 (France)</option>
+                <option value="+995">+995 (Georgia)</option>
+                <option value="+49">+49 (Germany)</option>
+                <option value="+30">+30 (Greece)</option>
+                <option value="+36">+36 (Hungary)</option>
+                <option value="+354">+354 (Iceland)</option>
+                <option value="+353">+353 (Ireland)</option>
+                <option value="+39">+39 (Italy)</option>
+                <option value="+371">+371 (Latvia)</option>
+                <option value="+370">+370 (Lithuania)</option>
+                <option value="+352">+352 (Luxembourg)</option>
+                <option value="+356">+356 (Malta)</option>
+                <option value="+373">+373 (Moldova)</option>
+                <option value="+377">+377 (Monaco)</option>
+                <option value="+382">+382 (Montenegro)</option>
+                <option value="+31">+31 (Netherlands)</option>
+                <option value="+47">+47 (Norway)</option>
+                <option value="+48">+48 (Poland)</option>
+                <option value="+351">+351 (Portugal)</option>
+                <option value="+40">+40 (Romania)</option>
+                <option value="+7">+7 (Russia)</option>
+                <option value="+378">+378 (San Marino)</option>
+                <option value="+381">+381 (Serbia)</option>
+                <option value="+421">+421 (Slovakia)</option>
+                <option value="+386">+386 (Slovenia)</option>
+                <option value="+34">+34 (Spain)</option>
+                <option value="+46">+46 (Sweden)</option>
+                <option value="+41">+41 (Switzerland)</option>
+                <option value="+90">+90 (Turkey)</option>
+                <option value="+380">+380 (Ukraine)</option>
+                <option value="+379">+379 (Vatican City)</option>
+                <!-- Add others as needed -->
+              </select>
+              <input 
+                type="tel" 
+                id="receiverPhone" 
+                name="receiverPhone" 
+                placeholder="7012345678"
+                required 
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. BOTTOM BUTTONS -->
         <div class="modal-buttons">
           <button type="button" class="cancel-btn">Cancel</button>
-          <button type="submit" class="post-load-btn">Post Load</button>
+          <button type="submit" class="post-load-btn">
+            Submit Request
+          </button>
         </div>
       </form>
     </div>
