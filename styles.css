@@ -1,4 +1,4 @@
-/* Reset some basic elements */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -8,15 +8,16 @@
 /* Body background and font settings */
 body {
   font-family: 'Helvetica', Arial, sans-serif;
-  background: linear-gradient(to bottom right, #f9d2eb, #fef4f7);
-  color: #333;
+  /* Example of a more pronounced dark-to-lighter purple gradient */
+  background: linear-gradient(to bottom, #10021b 0%, #361c47 100%);
+  color: #fff;
+  min-height: 100vh;
 }
 
-/* Container splits page into two sides */
+/* Main container splits page into two sides */
 .container {
   display: flex;
   flex-direction: row;
-  min-height: 100vh;
   width: 100%;
 }
 
@@ -27,12 +28,13 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .form-section h1 {
   margin-bottom: 2rem;
-  color: #7e4c74;
+  /* Bold orange from the logo */
+  color: #ff7a00;
 }
 
 .quote-form .field {
@@ -44,15 +46,44 @@ body {
 .quote-form .field label {
   margin-bottom: 0.5rem;
   font-weight: bold;
-  color: #6a2b5d;
+  color: #ff7a00;
+}
+
+/* GROUPED FIELDS (e.g., name + phone side by side) */
+.field-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.field-half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .quote-form .field input,
-.quote-form .field textarea {
-  border: 1px solid #ccc;
+.quote-form .field textarea,
+.field-half input,
+.field-half select {
+  border: 1px solid #444;
+  background: #1e1a2c; /* Dark form background to contrast text */
   border-radius: 4px;
   padding: 0.8rem;
   font-size: 1rem;
+  color: #fff;
+}
+
+.field-half select {
+  /* Adjust the select’s padding/width so it lines up nicely */
+  width: 100px;
+  padding: 0.8rem 0.3rem;
 }
 
 .quote-form .field textarea {
@@ -61,7 +92,7 @@ body {
 
 .quote-form button {
   display: inline-block;
-  background: #ff5f7e;
+  background: #ff7a00;
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -72,25 +103,37 @@ body {
 }
 
 .quote-form button:hover {
-  background: #ff2f4e;
+  background: #e66e00;
 }
 
 /* Right side image section */
 .image-section {
   flex: 1;
-  background: #ffeef3;
+  background: transparent; /* Let the gradient show through */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
 }
 
-/* Make the image responsive */
 .image-section img {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
 }
+
+/* Make the date icon lighter in Chrome, Safari, Edge */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+/* Do the same for time input */
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+  cursor: pointer;
+}
+
 
 /* Responsive layout for smaller screens */
 @media (max-width: 768px) {
@@ -100,4 +143,9 @@ body {
   .image-section {
     order: -1;
   }
+  /* Stack the field-halves vertically at smaller widths if needed */
+  .field-group {
+    flex-direction: column;
+  }
+
 }
