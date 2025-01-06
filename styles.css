@@ -1,151 +1,188 @@
-/* Reset */
+/* Basic reset */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* Body background and font settings */
 body {
-  font-family: 'Helvetica', Arial, sans-serif;
-  /* Example of a more pronounced dark-to-lighter purple gradient */
-  background: linear-gradient(to bottom, #10021b 0%, #361c47 100%);
-  color: #fff;
-  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 2rem;
 }
 
-/* Main container splits page into two sides */
-.container {
+/* Button to open modal */
+#openModalBtn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#openModalBtn:hover {
+  background-color: #0056b3;
+}
+
+/* The Modal overlay */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 999; 
+  left: 0; 
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.5); 
+  overflow: auto; /* Scroll if needed */
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto; 
+  padding: 1.5rem;
+  border-radius: 6px;
+  max-width: 900px; 
+  position: relative; 
+  color: #333;
+}
+
+/* Close (X) button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+.close:hover {
+  color: #000;
+}
+
+/* Two-column layout */
+.row {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap; 
+  gap: 1rem;
+}
+
+.column {
+  flex: 1 1 300px; 
+  min-width: 0;
+  padding: 0.5rem 0;
+}
+
+/* Form controls */
+label {
+  display: block;
+  margin: 0.75rem 0 0.25rem 0;
+  font-weight: bold;
+}
+
+.inline-label {
+  margin-right: 0.25rem; 
+}
+
+input {
+  padding: 0.5rem;
   width: 100%;
 }
 
-/* Left side form section */
-.form-section {
-  flex: 1;
+/* Grouped radio buttons (Between, At, Before) */
+.button-group {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-  max-width: 800px;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-.form-section h1 {
-  margin-bottom: 2rem;
-  /* Bold orange from the logo */
-  color: #ff7a00;
+/* Hide the real radio input, style the <span> instead */
+.button-group input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
 
-.quote-form .field {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5rem;
+.button-group label {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
 }
 
-.quote-form .field label {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #ff7a00;
+.button-group span {
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
 
-/* GROUPED FIELDS (e.g., name + phone side by side) */
-.field-group {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+/* Highlight selected radio button */
+.button-group input[type="radio"]:checked + span {
+  background-color: #007bff;
+  color: #fff;
 }
 
-.field-half {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.button-group label:hover span {
+  background-color: #e0e0e0;
 }
 
-.phone-wrapper {
+/* Single date/time group */
+.datetime-group {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.quote-form .field input,
-.quote-form .field textarea,
-.field-half input,
-.field-half select {
-  border: 1px solid #444;
-  background: #1e1a2c; /* Dark form background to contrast text */
-  border-radius: 4px;
-  padding: 0.8rem;
-  font-size: 1rem;
-  color: #fff;
+/* The "Between" date/time container */
+.datetime-between {
+  display: none; /* hidden by default, shown if user selects "Between" */
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.field-half select {
-  /* Adjust the select’s padding/width so it lines up nicely */
-  width: 100px;
-  padding: 0.8rem 0.3rem;
-}
-
-.quote-form .field textarea {
-  resize: vertical;
-}
-
-.quote-form button {
-  display: inline-block;
-  background: #ff7a00;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-
-.quote-form button:hover {
-  background: #e66e00;
-}
-
-/* Right side image section */
-.image-section {
-  flex: 1;
-  background: transparent; /* Let the gradient show through */
+/* Buttons at the bottom */
+.modal-buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-.image-section img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-/* Make the date icon lighter in Chrome, Safari, Edge */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(100%);
+.cancel-btn,
+.post-load-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
   cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-/* Do the same for time input */
-input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(100%);
-  cursor: pointer;
+.cancel-btn {
+  background-color: #ddd;
 }
 
+.cancel-btn:hover {
+  background-color: #ccc;
+}
 
-/* Responsive layout for smaller screens */
+.post-load-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.post-load-btn:hover {
+  background-color: #218838;
+}
+
+/* Responsive stacking for narrower screens */
 @media (max-width: 768px) {
-  .container {
+  .row {
     flex-direction: column;
   }
-  .image-section {
-    order: -1;
-  }
-  /* Stack the field-halves vertically at smaller widths if needed */
-  .field-group {
-    flex-direction: column;
-  }
-
 }
