@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Post Load Popup - Between/At/Before</title>
+  <title>Post Load Popup - At/Before/Between</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -52,22 +52,14 @@
             />
 
             <label>Date &amp; Time *</label>
-            <!-- Radio buttons for “Between” / “At” / “Before” -->
+            <!-- Radio buttons for “At” / “Before” / “Between” -->
             <div class="button-group">
               <label>
                 <input 
                   type="radio" 
                   name="pickupDateType" 
-                  value="Between" 
+                  value="At" 
                   checked
-                />
-                <span>Between</span>
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="pickupDateType" 
-                  value="At"
                 />
                 <span>At</span>
               </label>
@@ -78,6 +70,14 @@
                   value="Before"
                 />
                 <span>Before</span>
+              </label>
+              <label>
+                <input 
+                  type="radio" 
+                  name="pickupDateType" 
+                  value="Between"
+                />
+                <span>Between</span>
               </label>
             </div>
 
@@ -92,14 +92,30 @@
             <!-- Two date/time pairs (shown if “Between”) -->
             <div class="datetime-between" id="pickupBetweenDateTime">
               <div class="datetime-group">
-                <label>From:</label>
-                <input type="date" id="pickupDateFrom" name="pickupDateFrom" />
-                <input type="time" id="pickupTimeFrom" name="pickupTimeFrom" />
+                <label class="inline-label">From:</label>
+                <input 
+                  type="date" 
+                  id="pickupDateFrom" 
+                  name="pickupDateFrom" 
+                />
+                <input 
+                  type="time" 
+                  id="pickupTimeFrom" 
+                  name="pickupTimeFrom" 
+                />
               </div>
               <div class="datetime-group">
-                <label>To:</label>
-                <input type="date" id="pickupDateTo" name="pickupDateTo" />
-                <input type="time" id="pickupTimeTo" name="pickupTimeTo" />
+                <label class="inline-label">To:</label>
+                <input 
+                  type="date" 
+                  id="pickupDateTo" 
+                  name="pickupDateTo" 
+                />
+                <input 
+                  type="time" 
+                  id="pickupTimeTo" 
+                  name="pickupTimeTo" 
+                />
               </div>
             </div>
           </div>
@@ -134,22 +150,14 @@
             />
 
             <label>Date &amp; Time *</label>
-            <!-- Radio buttons for “Between” / “At” / “Before” -->
+            <!-- Radio buttons for “At” / “Before” / “Between” -->
             <div class="button-group">
               <label>
                 <input 
                   type="radio" 
                   name="deliveryDateType" 
-                  value="Between" 
+                  value="At" 
                   checked
-                />
-                <span>Between</span>
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="deliveryDateType" 
-                  value="At"
                 />
                 <span>At</span>
               </label>
@@ -160,6 +168,14 @@
                   value="Before"
                 />
                 <span>Before</span>
+              </label>
+              <label>
+                <input 
+                  type="radio" 
+                  name="deliveryDateType" 
+                  value="Between"
+                />
+                <span>Between</span>
               </label>
             </div>
 
@@ -174,7 +190,7 @@
             <!-- Two date/time pairs (shown if “Between”) -->
             <div class="datetime-between" id="deliveryBetweenDateTime">
               <div class="datetime-group">
-                <label>From:</label>
+                <label class="inline-label">From:</label>
                 <input 
                   type="date" 
                   id="deliveryDateFrom" 
@@ -187,7 +203,7 @@
                 />
               </div>
               <div class="datetime-group">
-                <label>To:</label>
+                <label class="inline-label">To:</label>
                 <input 
                   type="date" 
                   id="deliveryDateTo" 

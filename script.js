@@ -26,7 +26,7 @@ window.addEventListener("click", (event) => {
   }
 });
 
-// 2. Toggle “Between” vs “At” / “Before” for Pickup
+// 2. Toggle “Between” vs “At”/“Before” for Pickup
 const pickupRadioButtons = document.querySelectorAll('input[name="pickupDateType"]');
 const pickupSingleDateTime = document.getElementById("pickupSingleDateTime");
 const pickupBetweenDateTime = document.getElementById("pickupBetweenDateTime");
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updatePickupDateTime(checkedPickup.value);
 });
 
-// 3. Toggle “Between” vs “At” / “Before” for Delivery
+// 3. Toggle “Between” vs “At”/“Before” for Delivery
 const deliveryRadioButtons = document.querySelectorAll('input[name="deliveryDateType"]');
 const deliverySingleDateTime = document.getElementById("deliverySingleDateTime");
 const deliveryBetweenDateTime = document.getElementById("deliveryBetweenDateTime");

@@ -85,6 +85,7 @@ label {
 
 .inline-label {
   margin-right: 0.25rem; 
+  font-weight: normal;
 }
 
 input {
@@ -92,7 +93,7 @@ input {
   width: 100%;
 }
 
-/* Grouped radio buttons (Between, At, Before) */
+/* Grouped radio buttons (At, Before, Between) */
 .button-group {
   display: flex;
   gap: 0.5rem;
@@ -144,6 +145,12 @@ input {
   display: none; /* hidden by default, shown if user selects "Between" */
   flex-direction: column;
   gap: 0.5rem;
+}
+
+/* Make sure both "From" and "To" inputs are same width */
+.datetime-between .datetime-group input[type="date"],
+.datetime-between .datetime-group input[type="time"] {
+  width: 130px; /* adjust as needed */
 }
 
 /* Buttons at the bottom */
