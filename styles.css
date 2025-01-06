@@ -8,15 +8,16 @@
 /* Body background and font settings */
 body {
   font-family: 'Helvetica', Arial, sans-serif;
-  background: linear-gradient(to bottom right, #f9d2eb, #fef4f7);
-  color: #333;
+  /* Darker to lighter purple gradient */
+  background: linear-gradient(to bottom, #1a0f23 0%, #2b1230 100%);
+  color: #fff;
+  min-height: 100vh;
 }
 
 /* Container splits page into two sides */
 .container {
   display: flex;
   flex-direction: row;
-  min-height: 100vh;
   width: 100%;
 }
 
@@ -32,7 +33,8 @@ body {
 
 .form-section h1 {
   margin-bottom: 2rem;
-  color: #7e4c74;
+  /* Bold orange from the logo */
+  color: #ff7a00;
 }
 
 .quote-form .field {
@@ -44,15 +46,17 @@ body {
 .quote-form .field label {
   margin-bottom: 0.5rem;
   font-weight: bold;
-  color: #6a2b5d;
+  color: #ff7a00; /* Label color in the same orange as headings */
 }
 
 .quote-form .field input,
 .quote-form .field textarea {
-  border: 1px solid #ccc;
+  border: 1px solid #444;
+  background: #1e1a2c;
   border-radius: 4px;
   padding: 0.8rem;
   font-size: 1rem;
+  color: #fff;
 }
 
 .quote-form .field textarea {
@@ -61,7 +65,7 @@ body {
 
 .quote-form button {
   display: inline-block;
-  background: #ff5f7e;
+  background: #ff7a00;
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -72,20 +76,19 @@ body {
 }
 
 .quote-form button:hover {
-  background: #ff2f4e;
+  background: #e66e00; /* Darker orange on hover */
 }
 
 /* Right side image section */
 .image-section {
   flex: 1;
-  background: #ffeef3;
+  background: transparent; /* Let the gradient show through */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
 }
 
-/* Make the image responsive */
 .image-section img {
   max-width: 100%;
   height: auto;
