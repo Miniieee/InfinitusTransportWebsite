@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Request a Quote</title>
+  <title>Request a Quote - Infinitus Transport Ltd</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,12 +17,13 @@
         class="quote-form"
       >
         <!-- REQUIRED: Your Web3Forms access key -->
-        <input type="hidden" name="access_key" value="a8435c2d-fe15-45f3-8ce7-17a3b4a95a87" />
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
 
         <!-- OPTIONAL: Where to redirect upon successful submission -->
-        <input type="hidden" name="redirect" value="bagyi.tomi932@gmail.com" />
+        <input type="hidden" name="redirect" value="thank-you.html" />
 
         <!-- Form Fields -->
+        <!-- 1. Pickup/Dropoff & Date/Time Fields -->
         <div class="field">
           <label for="pickupLocation">From (Post code / Business name)</label>
           <input type="text" id="pickupLocation" name="pickupLocation" required />
@@ -43,6 +44,7 @@
           <input type="time" id="timeNeeded" name="timeNeeded" required />
         </div>
 
+        <!-- 2. Transport Details & Weight -->
         <div class="field">
           <label for="itemsTransport">What needs transporting?</label>
           <textarea id="itemsTransport" name="itemsTransport" rows="2" required></textarea>
@@ -50,7 +52,14 @@
 
         <div class="field">
           <label for="weight">Weight (max 1000kg)</label>
-          <input type="number" id="weight" name="weight" min="1" max="1000" step="1" required />
+          <input 
+            type="number" 
+            id="weight" 
+            name="weight" 
+            min="1" 
+            max="1000" 
+            required 
+          />
         </div>
 
         <div class="field">
@@ -58,14 +67,82 @@
           <textarea id="specialInstructions" name="specialInstructions" rows="2"></textarea>
         </div>
 
-        <div class="field">
-          <label for="senderContact">Contact of person giving the goods (Name & Phone)</label>
-          <input type="text" id="senderContact" name="senderContact" required />
+        <!-- 3. Sender (Giving the goods) Contact: Name & Phone side by side -->
+        <div class="field-group">
+          <!-- Name -->
+          <div class="field-half">
+            <label for="senderName">Contact Person (Giving the goods)</label>
+            <input 
+              type="text" 
+              id="senderName" 
+              name="senderName" 
+              placeholder="John Doe" 
+              required 
+            />
+          </div>
+          <!-- Country Code + Phone -->
+          <div class="field-half">
+            <label for="senderPhone">Phone Number</label>
+            <div class="phone-wrapper">
+              <select 
+                id="senderCountryCode" 
+                name="senderCountryCode" 
+                required
+              >
+                <option value="+44" selected>+44 (UK)</option>
+                <option value="+1">+1 (US)</option>
+                <option value="+33">+33 (France)</option>
+                <option value="+49">+49 (Germany)</option>
+                <!-- Add others as needed -->
+              </select>
+              <input 
+                type="tel" 
+                id="senderPhone" 
+                name="senderPhone" 
+                placeholder="7123456789" 
+                required 
+              />
+            </div>
+          </div>
         </div>
 
-        <div class="field">
-          <label for="receiverContact">Contact receiving goods (Name & Phone)</label>
-          <input type="text" id="receiverContact" name="receiverContact" required />
+        <!-- 4. Receiver (Receiving the goods) Contact: Name & Phone side by side -->
+        <div class="field-group">
+          <!-- Name -->
+          <div class="field-half">
+            <label for="receiverName">Contact Person (Receiving the goods)</label>
+            <input 
+              type="text" 
+              id="receiverName" 
+              name="receiverName" 
+              placeholder="Jane Smith" 
+              required 
+            />
+          </div>
+          <!-- Country Code + Phone -->
+          <div class="field-half">
+            <label for="receiverPhone">Phone Number</label>
+            <div class="phone-wrapper">
+              <select 
+                id="receiverCountryCode" 
+                name="receiverCountryCode" 
+                required
+              >
+                <option value="+44" selected>+44 (UK)</option>
+                <option value="+1">+1 (US)</option>
+                <option value="+33">+33 (France)</option>
+                <option value="+49">+49 (Germany)</option>
+                <!-- Add others as needed -->
+              </select>
+              <input 
+                type="tel" 
+                id="receiverPhone" 
+                name="receiverPhone" 
+                placeholder="7012345678" 
+                required 
+              />
+            </div>
+          </div>
         </div>
 
         <!-- Submit -->
@@ -75,9 +152,8 @@
 
     <!-- Right side: Image or illustration -->
     <div class="image-section">
-      <!-- Replace with your desired image or an illustration -->
       <img 
-        src="Images/transparentLogo.png" 
+        src="https://via.placeholder.com/600x400?text=Transport+Illustration" 
         alt="Transportation illustration" 
       />
     </div>
