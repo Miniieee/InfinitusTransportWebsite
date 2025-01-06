@@ -21,14 +21,14 @@ body {
 
 /* 3) HEADER STYLES */
 header {
-  background-color: #2c2f86;
+  background-color: #3b5998;
   padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 999;
 }
 
-header nav {
+nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,8 +36,22 @@ header nav {
   margin: 0 auto;
 }
 
+/* Left side: logo image + links */
+.left-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Adjust logo image size as you like */
+.logo-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
 /* Navigation links */
-header nav a {
+.left-nav a {
   color: #fff;
   text-decoration: none;
   margin-right: 1rem;
@@ -45,7 +59,7 @@ header nav a {
   transition: color 0.3s;
 }
 
-header nav a:hover {
+.left-nav a:hover {
   color: #ff7a00; /* A bold orange hover color */
 }
 
@@ -60,6 +74,7 @@ header nav a:hover {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 #openModalBtn:hover {
   background-color: #0056b3;
 }
@@ -70,14 +85,52 @@ section {
   margin: 0 auto;
   padding: 3rem 1rem;
 }
+
 section h2 {
   margin-bottom: 1.5rem;
   font-size: 2rem;
   color: #ff7a00;
 }
+
 section p {
   line-height: 1.6;
   margin-bottom: 1rem;
+}
+
+/* HOME WRAPPER: text left, image right */
+.home-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.home-text {
+  flex: 1;
+}
+
+.home-image img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* ABOUT WRAPPER: image left, text right */
+.about-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-image img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.about-text {
+  flex: 1;
 }
 
 /* 5) THE MODAL OVERLAY */
@@ -113,6 +166,7 @@ section p {
   cursor: pointer;
   margin-top: -10px;
 }
+
 .close:hover {
   color: #000;
 }
@@ -124,16 +178,19 @@ section p {
   gap: 1rem;
   margin-top: 1rem;
 }
+
 .column {
   flex: 1 1 300px;
   min-width: 0;
   padding: 0.5rem 0;
 }
+
 label {
   display: block;
   margin: 0.75rem 0 0.25rem 0;
   font-weight: bold;
 }
+
 input,
 textarea,
 select {
@@ -157,10 +214,12 @@ select {
   display: flex;
   gap: 0.5rem;
 }
+
 .phone-wrapper select {
   width: 120px;
   flex-shrink: 0;
 }
+
 .phone-wrapper input[type="tel"] {
   flex: 1 1 auto;
 }
@@ -172,6 +231,7 @@ select {
   gap: 1rem;
   margin-top: 1rem;
 }
+
 .cancel-btn,
 .post-load-btn {
   padding: 0.75rem 1.5rem;
@@ -180,26 +240,49 @@ select {
   border-radius: 4px;
   font-size: 1rem;
 }
+
 .cancel-btn {
   background-color: #ddd;
 }
+
 .cancel-btn:hover {
   background-color: #ccc;
 }
+
 .post-load-btn {
   background-color: #28a745;
   color: #fff;
 }
+
 .post-load-btn:hover {
   background-color: #218838;
 }
 
+/* Date/Time input color fix for some browsers */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+  cursor: pointer;
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  header nav a {
+  nav a {
     margin-right: 0.5rem;
   }
+
+  /* Stack the home/about layouts vertically on smaller screens */
+  .home-wrapper,
+  .about-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-image img,
+  .about-image img {
+    max-width: 100%;
+  }
+
   .row {
     flex-direction: column;
   }

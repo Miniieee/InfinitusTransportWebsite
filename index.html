@@ -12,43 +12,65 @@
   <!-- HEADER (Sticky at top) -->
   <header>
     <nav>
-      <div>
+      <!-- Left side: Logo image + nav links -->
+      <div class="left-nav">
+        <!-- Replace "images/logo.png" with your actual logo path -->
+        <img src="Images/transparentLogo.png" alt="Logo" class="logo-image" />
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
         <a href="#contact">Contact</a>
       </div>
-      <!-- “Get a Quote” triggers the modal -->
+
+      <!-- Right side: “Get a Quote” button triggers the modal -->
       <button id="openModalBtn">Get a Quote</button>
     </nav>
   </header>
 
   <!-- HOME SECTION -->
   <section id="home">
-    <h2>Welcome to Infinitus Transport</h2>
-    <p>
-      We get you from point A to B with comfort and ease. We believe we’ve 
-      become so successful due to always working hard to go the extra mile. 
-      We’ll work whenever our clients need us, offering worry-free, quality 
-      service at a great price.
-    </p>
-    <p>
-      Scroll down or use the navigation to learn more about us or get in touch!
-    </p>
+    <!-- We'll create a wrapper to position text on the left and image on the right -->
+    <div class="home-wrapper">
+      <div class="home-text">
+        <h2>Welcome to Infinitus Transport</h2>
+        <p>
+          We get you from point A to B with comfort and ease. We believe we’ve 
+          become so successful due to always working hard to go the extra mile. 
+          We’ll work whenever our clients need us, offering worry-free, quality 
+          service at a great price.
+        </p>
+        <p>
+          Scroll down or use the navigation to learn more about us or get in touch!
+        </p>
+      </div>
+      <!-- Replace "images/home-right.jpg" with your actual image path -->
+      <div class="home-image">
+        <img src="images/transparentLogo.png" alt="Delivery Van" />
+      </div>
+    </div>
   </section>
 
   <!-- ABOUT SECTION -->
   <section id="about">
-    <h2>About Us</h2>
-    <p>
-      Exceptional Courier Services with Infinitus Transport Ltd.
-      In today’s fast-paced world, the need for reliable and 
-      swift courier services has never been greater.
-    </p>
-    <p>
-      We pride ourselves on delivering not just packages but also trust 
-      and satisfaction to our customers across the UK. Our dedicated team 
-      ensures that your deliveries are handled with care and precision.
-    </p>
+    <!-- We'll create a wrapper to position image on the left and text on the right -->
+    <div class="about-wrapper">
+      <!-- Replace "images/about-left.jpg" with your actual image path -->
+      <div class="about-image">
+        <img src="images/transparentLogo.png" alt="Team" />
+      </div>
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>
+          Exceptional Courier Services with Infinitus Transport Ltd.
+          In today’s fast-paced world, the need for reliable and 
+          swift courier services has never been greater.
+        </p>
+        <p>
+          We pride ourselves on delivering not just packages but also trust 
+          and satisfaction to our customers across the UK. Our dedicated team 
+          ensures that your deliveries are handled with care and precision.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- CONTACT SECTION -->
@@ -222,7 +244,7 @@
               >
                 <option value="+44" selected>+44 (UK)</option>
                 <option value="+1">+1 (US)</option>
-                <!-- Add other country codes as needed -->
+                <!-- Add more country codes as needed -->
               </select>
               <input 
                 type="tel" 
@@ -255,7 +277,7 @@
               >
                 <option value="+44" selected>+44 (UK)</option>
                 <option value="+1">+1 (US)</option>
-                <!-- Add other country codes as needed -->
+                <!-- Add more country codes as needed -->
               </select>
               <input 
                 type="tel" 
