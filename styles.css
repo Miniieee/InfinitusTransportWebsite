@@ -122,6 +122,19 @@ body {
   border-radius: 10px;
 }
 
+/* Make the date icon lighter in Chrome, Safari, Edge */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+/* Do the same for time input */
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+
 /* Responsive layout for smaller screens */
 @media (max-width: 768px) {
   .container {
@@ -134,4 +147,5 @@ body {
   .field-group {
     flex-direction: column;
   }
+
 }
