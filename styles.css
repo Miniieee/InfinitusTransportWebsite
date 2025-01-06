@@ -1,4 +1,4 @@
-/* Reset some basic elements */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -8,13 +8,13 @@
 /* Body background and font settings */
 body {
   font-family: 'Helvetica', Arial, sans-serif;
-  /* Darker to lighter purple gradient */
-  background: linear-gradient(to bottom, #1a0f23 0%, #2b1230 100%);
+  /* More pronounced dark-to-lighter purple gradient */
+  background: linear-gradient(to bottom, #10021b 0%, #361c47 100%);
   color: #fff;
   min-height: 100vh;
 }
 
-/* Container splits page into two sides */
+/* Main container splits page into two sides */
 .container {
   display: flex;
   flex-direction: row;
@@ -46,13 +46,13 @@ body {
 .quote-form .field label {
   margin-bottom: 0.5rem;
   font-weight: bold;
-  color: #ff7a00; /* Label color in the same orange as headings */
+  color: #ff7a00;
 }
 
 .quote-form .field input,
 .quote-form .field textarea {
   border: 1px solid #444;
-  background: #1e1a2c;
+  background: #1e1a2c; /* Dark form background to contrast text */
   border-radius: 4px;
   padding: 0.8rem;
   font-size: 1rem;
@@ -76,7 +76,7 @@ body {
 }
 
 .quote-form button:hover {
-  background: #e66e00; /* Darker orange on hover */
+  background: #e66e00;
 }
 
 /* Right side image section */
