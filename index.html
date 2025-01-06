@@ -3,76 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Post Load + Request a Quote</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Transport Services Single-Page</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- HEADER (Sticky at top) -->
+  <header>
+    <nav>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <!-- “Get a Quote” triggers the modal -->
+      <button id="openModalBtn">Get a Quote</button>
+    </nav>
+  </header>
 
-   <!-- Main container -->
-  <div class="container">
-    <!-- LEFT SIDE: About Section -->
-    <div class="form-section">
-      <h1>About Infinitus Transport Ltd</h1>
-      <p>
-        About [Your Company Name]
-uck driving on a highway
-Infinitus Transport LDT is a leading provider of road transport services, with a proven
-track record of delivering exceptional customer service and value. We offer a wide
-range of services, including:
- Full truckload (FTL) transportation
-Less-than-truckload (LTL) transportation
- Expedited transportation
-Dedicated transportation
- Warehousing and distribution
-We are committed to providing our customers with safe, reliable, and efficient
-transportation solutions. We have a team of experienced professionals who are
-dedicated to meeting your specific needs.
-Our Mission
-Our mission is to be the premier provider of road transport services in the United
-Kingdom. We will achieve this by:
- Providing superior customer service
- Offering competitive rates
- Maintaining a modern fleet of vehicles
- Embracing technology to improve our operations.
-Our Values
-We are guided by the following values:
- Safety:We are committed to providing a safe work environment for our
-employees and ensuring the safety of our customers cargo.
- Reliability:We are committed to providing reliable and on-time transportation
-services.
- Integrity:We operate with honesty and transparency.
- Excellence:We strive to provide the highest level of customer service.
-Contact Us
+  <!-- HOME SECTION -->
+  <section id="home">
+    <h2>Welcome to Infinitus Transport</h2>
+    <p>
+      We get you from point A to B with comfort and ease. We believe we’ve 
+      become so successful due to always working hard to go the extra mile. 
+      We’ll work whenever our clients need us, offering worry-free, quality 
+      service at a great price.
+    </p>
+    <p>
+      Scroll down or use the navigation to learn more about us or get in touch!
+    </p>
+  </section>
 
-We are always looking for new customers to partner with. If you are interested in
-learning more about our services, please contact us today.
-Contact Information:
- Website:[Your Website]
- Email:[Your Email Address]
- Phone:[Your Phone Number]
-      </p>
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Exceptional Courier Services with Infinitus Transport Ltd.
+      In today’s fast-paced world, the need for reliable and 
+      swift courier services has never been greater.
+    </p>
+    <p>
+      We pride ourselves on delivering not just packages but also trust 
+      and satisfaction to our customers across the UK. Our dedicated team 
+      ensures that your deliveries are handled with care and precision.
+    </p>
+  </section>
 
-      <p>
-        Whether you need a small van for a local delivery or a larger vehicle for 
-        bulk transport, we have the expertise and resources to accommodate your needs.
-      </p>
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      Have any questions or special requests? We’re here to help. <br/>
+      Phone: +44 7123 456 789 <br/>
+      Email: info@infinitustransport.co.uk
+    </p>
+    <p>
+      Need an immediate quote or want to post a load? Click the “Get a Quote” 
+      button above to open our form.
+    </p>
+  </section>
 
-      <!-- Request a Quote Button -->
-      <button id="openModalBtn">Request a Quote</button>
-    </div>
-
-    <!-- RIGHT SIDE: Image or illustration -->
-    <div class="image-section">
-      <img 
-        src="Images/transparentLogo.png" 
-        alt="Transportation illustration" 
-      />
-    </div>
-  </div>
-
-
-  <!-- The Modal (Popup) -->
+  <!-- ======================= MODAL FORM ======================= -->
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span> <!-- Close "X" -->
@@ -89,7 +82,6 @@ Contact Information:
           name="access_key" 
           value="a8435c2d-fe15-45f3-8ce7-17a3b4a95a87" 
         />
-
         <!-- OPTIONAL: Where to redirect upon successful submission -->
         <input 
           type="hidden" 
@@ -103,8 +95,6 @@ Contact Information:
         <div class="row">
           <div class="column">
             <h4>Pickup / From</h4>
-            
-            <!-- FROM location field (replacing "pickupContact") -->
             <label for="pickupLocation">From (Post code / Business name) *</label>
             <input 
               type="text" 
@@ -114,7 +104,6 @@ Contact Information:
               required
             />
 
-            <!-- Additional info (like old 'pickupCompany' & 'pickupAddressInfo') -->
             <label for="pickupCompany">Company</label>
             <input 
               type="text" 
@@ -131,80 +120,17 @@ Contact Information:
               placeholder="Optional additional details"
             />
 
-            <!-- Radio buttons for “At” / “Before” / “Between” -->
-            <label>Date &amp; Time *</label>
-            <div class="button-group">
-              <label>
-                <input 
-                  type="radio" 
-                  name="pickupDateType" 
-                  value="At" 
-                  checked
-                />
-                <span>At</span>
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="pickupDateType" 
-                  value="Before"
-                />
-                <span>Before</span>
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="pickupDateType" 
-                  value="Between"
-                />
-                <span>Between</span>
-              </label>
-            </div>
-
-            <!-- Single date/time (shown if “At” or “Before”) -->
-            <div class="datetime-group" id="pickupSingleDateTime">
-              <label class="inline-label">Date:</label>
+            <!-- Simplified pickup date/time -->
+            <label for="pickupDate">Pickup Date &amp; Time *</label>
+            <div class="datetime-group">
               <input type="date" id="pickupDate" name="pickupDate" required/>
-              <label class="inline-label">Time:</label>
               <input type="time" id="pickupTime" name="pickupTime" required/>
-            </div>
-
-            <!-- Two date/time pairs (shown if “Between”) -->
-            <div class="datetime-between" id="pickupBetweenDateTime">
-              <div class="datetime-group">
-                <label class="inline-label">From:</label>
-                <input 
-                  type="date" 
-                  id="pickupDateFrom" 
-                  name="pickupDateFrom" 
-                />
-                <input 
-                  type="time" 
-                  id="pickupTimeFrom" 
-                  name="pickupTimeFrom" 
-                />
-              </div>
-              <div class="datetime-group">
-                <label class="inline-label">To:</label>
-                <input 
-                  type="date" 
-                  id="pickupDateTo" 
-                  name="pickupDateTo" 
-                />
-                <input 
-                  type="time" 
-                  id="pickupTimeTo" 
-                  name="pickupTimeTo" 
-                />
-              </div>
             </div>
           </div>
 
           <!-- 2. TO / DELIVERY DETAILS -->
           <div class="column">
             <h4>Delivery / To</h4>
-
-            <!-- TO location field (replacing "deliveryContact") -->
             <label for="destinationLocation">To (Post code / Business name) *</label>
             <input 
               type="text" 
@@ -214,7 +140,6 @@ Contact Information:
               required
             />
 
-            <!-- Additional info (like old 'deliveryCompany' & 'deliveryAddressInfo') -->
             <label for="deliveryCompany">Company</label>
             <input 
               type="text" 
@@ -231,72 +156,11 @@ Contact Information:
               placeholder="Optional additional details"
             />
 
-            <!-- Radio buttons for “At” / “Before” / “Between” -->
-            <label>Date &amp; Time *</label>
-            <div class="button-group">
-              <label>
-                <input 
-                  type="radio" 
-                  name="deliveryDateType" 
-                  value="At" 
-                  checked
-                />
-                <span>At</span>
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="deliveryDateType" 
-                  value="Before"
-                />
-                <span>Before</span>
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="deliveryDateType" 
-                  value="Between"
-                />
-                <span>Between</span>
-              </label>
-            </div>
-
-            <!-- Single date/time (shown if “At” or “Before”) -->
-            <div class="datetime-group" id="deliverySingleDateTime">
-              <label class="inline-label">Date:</label>
+            <!-- Simplified delivery date/time -->
+            <label for="deliveryDate">Delivery Date &amp; Time *</label>
+            <div class="datetime-group">
               <input type="date" id="deliveryDate" name="deliveryDate" required/>
-              <label class="inline-label">Time:</label>
               <input type="time" id="deliveryTime" name="deliveryTime" required/>
-            </div>
-
-            <!-- Two date/time pairs (shown if “Between”) -->
-            <div class="datetime-between" id="deliveryBetweenDateTime">
-              <div class="datetime-group">
-                <label class="inline-label">From:</label>
-                <input 
-                  type="date" 
-                  id="deliveryDateFrom" 
-                  name="deliveryDateFrom" 
-                />
-                <input 
-                  type="time" 
-                  id="deliveryTimeFrom" 
-                  name="deliveryTimeFrom" 
-                />
-              </div>
-              <div class="datetime-group">
-                <label class="inline-label">To:</label>
-                <input 
-                  type="date" 
-                  id="deliveryDateTo" 
-                  name="deliveryDateTo" 
-                />
-                <input 
-                  type="time" 
-                  id="deliveryTimeTo" 
-                  name="deliveryTimeTo" 
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -305,7 +169,6 @@ Contact Information:
         <div class="row">
           <div class="column">
             <h4>Transport Details</h4>
-
             <label for="itemsTransport">What needs transporting? *</label>
             <textarea 
               id="itemsTransport" 
@@ -341,7 +204,6 @@ Contact Information:
           <!-- SENDER -->
           <div class="column">
             <h4>Sender (Giving the goods)</h4>
-
             <label for="senderName">Name *</label>
             <input 
               type="text" 
@@ -360,52 +222,7 @@ Contact Information:
               >
                 <option value="+44" selected>+44 (UK)</option>
                 <option value="+1">+1 (US)</option>
-                <option value="+355">+355 (Albania)</option>
-                <option value="+374">+374 (Armenia)</option>
-                <option value="+43">+43 (Austria)</option>
-                <option value="+994">+994 (Azerbaijan)</option>
-                <option value="+375">+375 (Belarus)</option>
-                <option value="+32">+32 (Belgium)</option>
-                <option value="+387">+387 (Bosnia and Herzegovina)</option>
-                <option value="+359">+359 (Bulgaria)</option>
-                <option value="+385">+385 (Croatia)</option>
-                <option value="+357">+357 (Cyprus)</option>
-                <option value="+420">+420 (Czech Republic)</option>
-                <option value="+45">+45 (Denmark)</option>
-                <option value="+372">+372 (Estonia)</option>
-                <option value="+358">+358 (Finland)</option>
-                <option value="+33">+33 (France)</option>
-                <option value="+995">+995 (Georgia)</option>
-                <option value="+49">+49 (Germany)</option>
-                <option value="+30">+30 (Greece)</option>
-                <option value="+36">+36 (Hungary)</option>
-                <option value="+354">+354 (Iceland)</option>
-                <option value="+353">+353 (Ireland)</option>
-                <option value="+39">+39 (Italy)</option>
-                <option value="+371">+371 (Latvia)</option>
-                <option value="+370">+370 (Lithuania)</option>
-                <option value="+352">+352 (Luxembourg)</option>
-                <option value="+356">+356 (Malta)</option>
-                <option value="+373">+373 (Moldova)</option>
-                <option value="+377">+377 (Monaco)</option>
-                <option value="+382">+382 (Montenegro)</option>
-                <option value="+31">+31 (Netherlands)</option>
-                <option value="+47">+47 (Norway)</option>
-                <option value="+48">+48 (Poland)</option>
-                <option value="+351">+351 (Portugal)</option>
-                <option value="+40">+40 (Romania)</option>
-                <option value="+7">+7 (Russia)</option>
-                <option value="+378">+378 (San Marino)</option>
-                <option value="+381">+381 (Serbia)</option>
-                <option value="+421">+421 (Slovakia)</option>
-                <option value="+386">+386 (Slovenia)</option>
-                <option value="+34">+34 (Spain)</option>
-                <option value="+46">+46 (Sweden)</option>
-                <option value="+41">+41 (Switzerland)</option>
-                <option value="+90">+90 (Turkey)</option>
-                <option value="+380">+380 (Ukraine)</option>
-                <option value="+379">+379 (Vatican City)</option>
-                <!-- Add others as needed -->
+                <!-- Add other country codes as needed -->
               </select>
               <input 
                 type="tel" 
@@ -420,7 +237,6 @@ Contact Information:
           <!-- RECEIVER -->
           <div class="column">
             <h4>Receiver (Receiving the goods)</h4>
-
             <label for="receiverName">Name *</label>
             <input 
               type="text" 
@@ -439,52 +255,7 @@ Contact Information:
               >
                 <option value="+44" selected>+44 (UK)</option>
                 <option value="+1">+1 (US)</option>
-                <option value="+355">+355 (Albania)</option>
-                <option value="+374">+374 (Armenia)</option>
-                <option value="+43">+43 (Austria)</option>
-                <option value="+994">+994 (Azerbaijan)</option>
-                <option value="+375">+375 (Belarus)</option>
-                <option value="+32">+32 (Belgium)</option>
-                <option value="+387">+387 (Bosnia and Herzegovina)</option>
-                <option value="+359">+359 (Bulgaria)</option>
-                <option value="+385">+385 (Croatia)</option>
-                <option value="+357">+357 (Cyprus)</option>
-                <option value="+420">+420 (Czech Republic)</option>
-                <option value="+45">+45 (Denmark)</option>
-                <option value="+372">+372 (Estonia)</option>
-                <option value="+358">+358 (Finland)</option>
-                <option value="+33">+33 (France)</option>
-                <option value="+995">+995 (Georgia)</option>
-                <option value="+49">+49 (Germany)</option>
-                <option value="+30">+30 (Greece)</option>
-                <option value="+36">+36 (Hungary)</option>
-                <option value="+354">+354 (Iceland)</option>
-                <option value="+353">+353 (Ireland)</option>
-                <option value="+39">+39 (Italy)</option>
-                <option value="+371">+371 (Latvia)</option>
-                <option value="+370">+370 (Lithuania)</option>
-                <option value="+352">+352 (Luxembourg)</option>
-                <option value="+356">+356 (Malta)</option>
-                <option value="+373">+373 (Moldova)</option>
-                <option value="+377">+377 (Monaco)</option>
-                <option value="+382">+382 (Montenegro)</option>
-                <option value="+31">+31 (Netherlands)</option>
-                <option value="+47">+47 (Norway)</option>
-                <option value="+48">+48 (Poland)</option>
-                <option value="+351">+351 (Portugal)</option>
-                <option value="+40">+40 (Romania)</option>
-                <option value="+7">+7 (Russia)</option>
-                <option value="+378">+378 (San Marino)</option>
-                <option value="+381">+381 (Serbia)</option>
-                <option value="+421">+421 (Slovakia)</option>
-                <option value="+386">+386 (Slovenia)</option>
-                <option value="+34">+34 (Spain)</option>
-                <option value="+46">+46 (Sweden)</option>
-                <option value="+41">+41 (Switzerland)</option>
-                <option value="+90">+90 (Turkey)</option>
-                <option value="+380">+380 (Ukraine)</option>
-                <option value="+379">+379 (Vatican City)</option>
-                <!-- Add others as needed -->
+                <!-- Add other country codes as needed -->
               </select>
               <input 
                 type="tel" 
@@ -507,8 +278,9 @@ Contact Information:
       </form>
     </div>
   </div>
+  <!-- END MODAL -->
 
-  <!-- JavaScript -->
+  <!-- Link to external JS at the very bottom -->
   <script src="script.js"></script>
 </body>
 </html>
