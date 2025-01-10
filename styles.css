@@ -1,355 +1,212 @@
-
-/* Reset */
+/* Reset/normalize styles (optional) */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-/* Body background and font settings */
 body {
-  font-family: 'Helvetica', Arial, sans-serif;
-  /* Example of a more pronounced dark-to-lighter purple gradient */
-  background: linear-gradient(to bottom, #10021b 0%, #361c47 100%);
-  color: #fff;
-  min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
-/* Main container splits page into two sides */
-.container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-
-/* Left side form section */
-.form-section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-  max-width: 800px;
-}
-
-.form-section h1 {
-  margin-bottom: 2rem;
-  /* Bold orange from the logo */
-  color: #ff7a00;
-}
-
-.quote-form .field {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5rem;
-}
-
-.quote-form .field label {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #ff7a00;
-}
-
-/* GROUPED FIELDS (e.g., name + phone side by side) */
-.field-group {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.field-half {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.phone-wrapper {
+/* Header */
+header {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.quote-form .field input,
-.quote-form .field textarea,
-.field-half input,
-.field-half select {
-  border: 1px solid #444;
-  background: #1e1a2c; /* Dark form background to contrast text */
-  border-radius: 4px;
-  padding: 0.8rem;
-  font-size: 1rem;
-  color: #fff;
-}
-
-.field-half select {
-  /* Adjust the select’s padding/width so it lines up nicely */
-  width: 100px;
-  padding: 0.8rem 0.3rem;
-}
-
-.quote-form .field textarea {
-  resize: vertical;
-}
-
-.quote-form button {
-  display: inline-block;
-  background: #ff7a00;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-
-.quote-form button:hover {
-  background: #e66e00;
-}
-
-/* Right side image section */
-.image-section {
-  flex: 1;
-  background: transparent; /* Let the gradient show through */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.image-section img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-/* Make the date icon lighter in Chrome, Safari, Edge */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(100%);
-  cursor: pointer;
-}
-
-/* Do the same for time input */
-input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(100%);
-  cursor: pointer;
-}
-
-
-/* Responsive layout for smaller screens */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-  .image-section {
-    order: -1;
-  }
-  /* Stack the field-halves vertically at smaller widths if needed */
-  .field-group {
-    flex-direction: column;
-  }
-
-}
-
-
-/* Button to open modal */
-#openModalBtn {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-#openModalBtn:hover {
-  background-color: #0056b3;
-}
-
-/* The Modal overlay */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 999; 
-  left: 0; 
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  background-color: rgba(0,0,0,0.5); 
-  overflow: auto; /* Scroll if needed */
-}
-
-/* Modal content box */
-.modal-content {
+  justify-content: space-between;
+  padding: 10px 20px;
   background-color: #fff;
-  margin: 5% auto; 
-  padding: 1.5rem;
-  border-radius: 6px;
-  max-width: 900px; 
-  position: relative; 
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo h1 {
+  font-size: 20px;
   color: #333;
 }
 
-/* Close (X) button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: -10px;
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.close:hover {
+.header-right a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+.header-right .phone {
+  font-size: 14px;
   color: #000;
 }
 
-/* Two-column layout */
-.row {
+/* Green separation line */
+.separator {
+  background-color: #4cbb5b;
+  height: 4px;
+  /* Remove margins so it touches the hero top/bottom exactly */
+  margin: 0;
+  border: none;
+  /* Ensure it spans full width */
+  width: 100%;
+}
+
+/* Hero section */
+.hero {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #ccc url(Images/AIshit.png) center/cover no-repeat;
+  min-height: 300px;
+  position: relative;
 }
 
-.column {
-  flex: 1 1 300px;
-  min-width: 0;
-  padding: 0.5rem 0;
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px 20px;
+  color: #fff;
+  max-width: 500px;
+  margin: 40px;
 }
 
-/* Form controls */
-label {
-  display: block;
-  margin: 0.75rem 0 0.25rem 0;
+.hero-overlay h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
-.inline-label {
-  margin-right: 0.25rem; 
-  font-weight: normal;
+.hero-overlay p {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
-input,
-textarea,
-select {
-  padding: 0.5rem;
+.quote-form {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.quote-form select,
+.quote-form button {
+  display: block;
   width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 16px;
+  padding: 10px;
 }
 
-/* Grouped radio buttons (At, Before, Between) */
-.button-group {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-/* Hide the real radio input, style the <span> instead */
-.button-group input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.button-group label {
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-}
-
-.button-group span {
-  display: inline-block;
-  background-color: #f0f0f0;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-/* Highlight selected radio button */
-.button-group input[type="radio"]:checked + span {
-  background-color: #007bff;
+.quote-form button {
+  background-color: #2f8b2f;
   color: #fff;
-}
-
-.button-group label:hover span {
-  background-color: #e0e0e0;
-}
-
-/* Single date/time group */
-.datetime-group {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-/* The "Between" date/time container */
-.datetime-between {
-  display: none; /* hidden by default, shown if user selects "Between" */
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-/* Make sure both "From" and "To" inputs are same width */
-.datetime-between .datetime-group input[type="date"],
-.datetime-between .datetime-group input[type="time"] {
-  width: 130px; /* adjust as needed */
-}
-
-/* Field grouping for phone */
-.phone-wrapper {
-  display: flex;
-  gap: 0.5rem;
-}
-.phone-wrapper select {
-  width: 120px;
-  flex-shrink: 0;
-}
-.phone-wrapper input[type="tel"] {
-  flex: 1 1 auto;
-}
-
-/* Buttons at the bottom */
-.modal-buttons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.cancel-btn,
-.post-load-btn {
-  padding: 0.75rem 1.5rem;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
-  font-size: 1rem;
+  font-weight: 600;
 }
 
-.cancel-btn {
-  background-color: #ddd;
+.quote-form button:hover {
+  background-color: #277227;
 }
 
-.cancel-btn:hover {
-  background-color: #ccc;
+.small-note {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
-.post-load-btn {
-  background-color: #28a745;
+/* Steps Section */
+.steps-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 20px;
+  text-align: center;
+}
+
+.step {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.step p {
+  color: #666;
+}
+
+/* Video/Illustration Section */
+.illustration-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 20px;
+}
+
+.illustration-section img {
+  max-width: 600px;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+/* Why Use Us */
+.why-use-us {
+  background-color: #fff;
+  margin: 40px 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.why-use-us h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.why-use-us p {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #333;
   color: #fff;
+  padding: 10px 0;
+  margin-top: 40px;
 }
 
-.post-load-btn:hover {
-  background-color: #218838;
+/* Fixed floating "Free quote" button */
+#free-quote-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4cbb5b;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive stacking for narrower screens */
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-  }
+#free-quote-btn:hover {
+  background-color: #43a24d;
 }
