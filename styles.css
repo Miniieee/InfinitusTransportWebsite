@@ -15,7 +15,7 @@ html {
    We'll keep the text color white. 
 */
 body {
-  background-color: #111;
+  background-color: #434459;
   color: #fff;
   font-family: 'Helvetica', Arial, sans-serif;
   min-height: 100vh;
@@ -86,15 +86,15 @@ nav {
    Tweak the colors to your liking.
 */
 #home {
-  background-color: #1e1a2c; /* Dark purple for Home */
+  background-color: #434459; /* Dark purple for Home */
 }
 
 #about {
-  background-color: #2c2f86; /* Slightly lighter or different color for About */
+  background-color: #33343f; /* Slightly lighter or different color for About */
 }
 
 #contact {
-  background-color: #361c47; /* Another color for Contact */
+  background-color: #434459; /* Another color for Contact */
 }
 
 section {
