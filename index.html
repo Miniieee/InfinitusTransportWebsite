@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Infinitus Transport</title>
+  <!-- Link to your external CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -30,11 +31,11 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <!-- .hero-overlay is in-flow, so hero’s height matches this content. -->
     <div class="hero-overlay">
       <h2>Get a free quote by clicking the button below</h2>
       <p>Enter your details and we will get back to you ASAP</p>
       <div class="quote-form">
+        <!-- Make these selects optional (not required) by removing any forced validation in JS -->
         <select id="vehicle-type">
           <option value="">Cars, motorcycles &amp; vehicles</option>
           <option value="car">Car</option>
@@ -47,6 +48,7 @@
           <option value="suv">SUV</option>
           <option value="sports-bike">Sports Bike</option>
         </select>
+        <!-- Button that opens the modal -->
         <button id="get-quotes-btn">Get Free Quotes Now &gt;&gt;</button>
       </div>
       <p class="small-note">Takes 60 seconds</p>
@@ -88,12 +90,139 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Delivery Quote Compare. All rights reserved.</p>
+    <p>&copy; Copyright Infinitus Transport Ltd Initial Business Centre Wilson Business Park, Manchester. M40 8WN All
+      rights reserved. Company No:14811196</p>
   </footer>
 
-  <!-- Floating free quote button -->
+  <!-- Floating free quote button (opens the modal) -->
   <button id="free-quote-btn">Free quote</button>
 
+  <!-- ======================= MODAL FORM ======================= -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <!-- Close "X" -->
+      <span class="close">&times;</span>
+
+      <!-- Wrap in a form. Now integrated with Web3Forms -->
+      <form action="https://api.web3forms.com/submit" method="POST" id="loadForm">
+        <!-- REQUIRED: Your Web3Forms access key -->
+        <input type="hidden" name="access_key" value="a8435c2d-fe15-45f3-8ce7-17a3b4a95a87" />
+        <!-- OPTIONAL: Where to redirect upon successful submission -->
+        <input type="hidden" name="redirect" value="bagyi.tomi932@gmail.com" />
+
+        <h2>Request a Quote / Post Load</h2>
+
+        <!-- 1. FROM / PICKUP DETAILS -->
+        <div class="row">
+          <div class="column">
+            <h4>Pickup / From</h4>
+            <label for="pickupLocation">From (Post code / Business name) *</label>
+            <input type="text" id="pickupLocation" name="pickupLocation" placeholder="E.g. NW10 0AB or Company Name"
+              required />
+
+            <label for="pickupCompany">Company</label>
+            <input type="text" id="pickupCompany" name="pickupCompany" placeholder="Pickup Company (optional)" />
+
+            <label for="pickupAddressInfo">Address Info</label>
+            <input type="text" id="pickupAddressInfo" name="pickupAddressInfo"
+              placeholder="Optional additional details" />
+
+            <label for="pickupDate">Pickup Date &amp; Time *</label>
+            <div class="datetime-group">
+              <input type="date" id="pickupDate" name="pickupDate" required />
+              <input type="time" id="pickupTime" name="pickupTime" required />
+            </div>
+          </div>
+
+          <!-- 2. TO / DELIVERY DETAILS -->
+          <div class="column">
+            <h4>Delivery / To</h4>
+            <label for="destinationLocation">To (Post code / Business name) *</label>
+            <input type="text" id="destinationLocation" name="destinationLocation"
+              placeholder="E.g. SW1A 1AA or Company Name" required />
+
+            <label for="deliveryCompany">Company</label>
+            <input type="text" id="deliveryCompany" name="deliveryCompany" placeholder="Delivery Company (optional)" />
+
+            <label for="deliveryAddressInfo">Address Info</label>
+            <input type="text" id="deliveryAddressInfo" name="deliveryAddressInfo"
+              placeholder="Optional additional details" />
+
+            <label for="deliveryDate">Delivery Date &amp; Time *</label>
+            <div class="datetime-group">
+              <input type="date" id="deliveryDate" name="deliveryDate" required />
+              <input type="time" id="deliveryTime" name="deliveryTime" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. TRANSPORT DETAILS & WEIGHT -->
+        <div class="row">
+          <div class="column">
+            <h4>Transport Details</h4>
+            <label for="itemsTransport">What needs transporting? *</label>
+            <textarea id="itemsTransport" name="itemsTransport" rows="2" placeholder="e.g., Pallet of goods, boxes..."
+              required></textarea>
+
+            <label for="weight">Weight (max 1000kg) *</label>
+            <input type="number" id="weight" name="weight" min="1" max="1000" placeholder="e.g. 200" required />
+
+            <label for="specialInstructions">Any special instructions?</label>
+            <textarea id="specialInstructions" name="specialInstructions" rows="2"
+              placeholder="e.g., Fragile, keep upright..."></textarea>
+          </div>
+        </div>
+
+        <!-- 4. SENDER & RECEIVER CONTACTS -->
+        <div class="row">
+          <!-- SENDER -->
+          <div class="column">
+            <h4>Sender (Giving the goods)</h4>
+            <label for="senderName">Name *</label>
+            <input type="text" id="senderName" name="senderName" placeholder="John Doe" required />
+
+            <label for="senderPhone">Phone Number *</label>
+            <div class="phone-wrapper">
+              <select id="senderCountryCode" name="senderCountryCode" <!-- Not required if you prefer, but let's keep it
+                required. You can remove if you want. -->
+                >
+                <option value="+44" selected>+44 (UK)</option>
+                <option value="+1">+1 (US)</option>
+              </select>
+              <input type="tel" id="senderPhone" name="senderPhone" placeholder="7123456789" required />
+            </div>
+          </div>
+
+          <!-- RECEIVER -->
+          <div class="column">
+            <h4>Receiver (Receiving the goods)</h4>
+            <label for="receiverName">Name *</label>
+            <input type="text" id="receiverName" name="receiverName" placeholder="Jane Smith" required />
+
+            <label for="receiverPhone">Phone Number *</label>
+            <div class="phone-wrapper">
+              <select id="receiverCountryCode" name="receiverCountryCode">
+                <option value="+44" selected>+44 (UK)</option>
+                <option value="+1">+1 (US)</option>
+              </select>
+              <input type="tel" id="receiverPhone" name="receiverPhone" placeholder="7012345678" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. BOTTOM BUTTONS -->
+        <div class="modal-buttons">
+          <button type="button" class="cancel-btn">Cancel</button>
+          <button type="submit" class="post-load-btn">
+            Submit Request
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- END MODAL -->
+
+  <!-- Link to your external JS file -->
   <script src="script.js"></script>
 </body>
 
