@@ -64,26 +64,31 @@ header {
   margin: 0;
 }
 
-/* Hero Section: 
-   - Use flex to center .hero-overlay horizontally.
-   - The height auto-adjusts to overlay’s content. */
+/* 
+  Hero Section:
+  - Give horizontal padding for left/right space.
+  - Center the overlay horizontally with flex.
+*/
 .hero {
   display: flex;
   justify-content: center;
   /* center child horizontally first */
   align-items: center;
-  /* and vertically if it’s smaller than hero */
+  /* and vertically if overlay is smaller */
   background: #ccc url(Images/AIshit.png) center/cover no-repeat;
-  padding: 0px 0;
-  /* some vertical space around the overlay */
+  /* add horizontal padding so there's space on left/right */
+  padding: 40px 30px;
+  /* you can adjust 40px (vertical) and 30px (horizontal) as you see fit */
 }
 
-/* The overlay is in-flow (no absolute).
-   We'll shift it left by half its own width 
-   so that its RIGHT edge lines up with the hero’s center. */
+/* 
+  The overlay is in-flow (no absolute).
+  We'll shift it left by half of its own width 
+  so that its RIGHT edge lines up with the hero’s center. 
+  Now it also benefits from .hero’s left/right padding.
+*/
 .hero-overlay {
   position: relative;
-  /* still in flow */
   max-width: 500px;
   /* fixed “quote section” width */
   width: 100%;
@@ -91,15 +96,9 @@ header {
   color: #fff;
   padding: 40px 20px;
   border-radius: 4px;
-  /* SHIFT IT LEFT by half of its own width: */
   transform: translateX(-50%);
-  /* 
-    Explanation:
-      - The .hero container is centering this block’s CENTER at 50% 
-        of the container. 
-      - Then translateX(-50%) moves it left by half its own width, 
-        meaning the RIGHT edge ends up at the center.
-  */
+  /* SHIFT IT LEFT by half its own width,
+     so the right edge is at hero’s center point. */
 }
 
 /* Headings, paragraphs in overlay */
@@ -145,6 +144,12 @@ header {
 
 /* Steps, Illustrations, Why Use Us */
 .steps-container {
+  position: relative;
+  left: 20%;
+  right: 20%;
+  width: 60%;
+
+  /* The rest of your steps styles */
   display: flex;
   justify-content: space-around;
   margin: 40px 20px;
@@ -164,11 +169,7 @@ header {
   color: #333;
 }
 
-.step p {
-  color: #666;
-}
-
-.illustration-section {
+.step .illustration-section {
   display: flex;
   justify-content: center;
   margin: 40px 20px;
@@ -210,7 +211,7 @@ footer {
 /* Floating free-quote button */
 #free-quote-btn {
   position: fixed;
-  bottom: 20px;
+  bottom: 45px;
   right: 20px;
   background-color: #4cbb5b;
   color: #fff;
@@ -224,4 +225,12 @@ footer {
 
 #free-quote-btn:hover {
   background-color: #43a24d;
+}
+
+
+.section-class {
+  position: relative;
+  left: 50%;
+  width: 50%;
+  transform: translateX(-100%);
 }
