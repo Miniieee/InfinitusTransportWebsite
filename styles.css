@@ -1,151 +1,218 @@
-/* Reset */
+/* Reset/normalize styles (optional) */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-/* Body background and font settings */
 body {
-  font-family: 'Helvetica', Arial, sans-serif;
-  /* Example of a more pronounced dark-to-lighter purple gradient */
-  background: linear-gradient(to bottom, #10021b 0%, #361c47 100%);
-  color: #fff;
-  min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
-/* Main container splits page into two sides */
-.container {
+/* Header */
+header {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo h1 {
+  font-size: 20px;
+  color: #333;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+/* Put phone number at top, with bold text or bigger size if needed */
+.phone {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+}
+
+.header-right nav {
+  display: flex;
+  gap: 15px;
+}
+
+.header-right nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Green separation line */
+.separator {
+  background-color: #4cbb5b;
+  height: 4px;
+  margin: 0;
+  border: none;
   width: 100%;
 }
 
-/* Left side form section */
-.form-section {
-  flex: 1;
+/* Hero section */
+.hero {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-  max-width: 800px;
-}
-
-.form-section h1 {
-  margin-bottom: 2rem;
-  /* Bold orange from the logo */
-  color: #ff7a00;
-}
-
-.quote-form .field {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5rem;
-}
-
-.quote-form .field label {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #ff7a00;
-}
-
-/* GROUPED FIELDS (e.g., name + phone side by side) */
-.field-group {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.field-half {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.phone-wrapper {
-  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  background: #ccc url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+  min-height: 300px;
+  position: relative;
 }
 
-.quote-form .field input,
-.quote-form .field textarea,
-.field-half input,
-.field-half select {
-  border: 1px solid #444;
-  background: #1e1a2c; /* Dark form background to contrast text */
-  border-radius: 4px;
-  padding: 0.8rem;
-  font-size: 1rem;
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px 20px;
   color: #fff;
+  max-width: 500px;
+  margin: 40px;
 }
 
-.field-half select {
-  /* Adjust the select’s padding/width so it lines up nicely */
-  width: 100px;
-  padding: 0.8rem 0.3rem;
+.hero-overlay h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-.quote-form .field textarea {
-  resize: vertical;
+.hero-overlay p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.quote-form {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.quote-form select,
+.quote-form button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 16px;
+  padding: 10px;
 }
 
 .quote-form button {
-  display: inline-block;
-  background: #ff7a00;
-  border: none;
-  border-radius: 4px;
+  background-color: #2f8b2f;
   color: #fff;
-  padding: 0.8rem 1.5rem;
+  border: none;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease;
+  font-weight: 600;
 }
 
 .quote-form button:hover {
-  background: #e66e00;
+  background-color: #277227;
 }
 
-/* Right side image section */
-.image-section {
-  flex: 1;
-  background: transparent; /* Let the gradient show through */
+.small-note {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Steps Section */
+.steps-container {
   display: flex;
-  align-items: center;
+  justify-content: space-around;
+  margin: 40px 20px;
+  text-align: center;
+}
+
+.step {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.step p {
+  color: #666;
+}
+
+/* Video/Illustration Section */
+.illustration-section {
+  display: flex;
   justify-content: center;
-  padding: 2rem;
+  margin: 40px 20px;
 }
 
-.image-section img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+.illustration-section img {
+  max-width: 600px;
+  width: 100%;
+  border: 1px solid #ccc;
 }
 
-/* Make the date icon lighter in Chrome, Safari, Edge */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(100%);
+/* Why Use Us */
+.why-use-us {
+  background-color: #fff;
+  margin: 40px 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.why-use-us h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.why-use-us p {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  margin-top: 40px;
+}
+
+/* Fixed floating "Free quote" button */
+#free-quote-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4cbb5b;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 20px;
+  font-size: 16px;
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Do the same for time input */
-input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(100%);
-  cursor: pointer;
-}
-
-
-/* Responsive layout for smaller screens */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-  .image-section {
-    order: -1;
-  }
-  /* Stack the field-halves vertically at smaller widths if needed */
-  .field-group {
-    flex-direction: column;
-  }
-
+#free-quote-btn:hover {
+  background-color: #43a24d;
 }
