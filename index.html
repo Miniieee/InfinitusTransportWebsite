@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Delivery Quote Compare (Sample)</title>
-  <!-- Link to external CSS (renamed to styles.css) -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -13,16 +12,11 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <!-- Placeholder for a real logo -->
       <img src="https://via.placeholder.com/40" alt="Logo" />
       <h1>Delivery Quote Compare</h1>
     </div>
-
-    <!-- Right side of the header -->
     <div class="header-right">
-      <!-- Phone number at top -->
       <div class="phone">0808 169 2000</div>
-      <!-- Navigation links below -->
       <nav>
         <a href="#">Become a Transporter</a>
         <a href="#">Login</a>
@@ -31,22 +25,23 @@
     </div>
   </header>
 
-  <!-- Green separation line BEFORE hero (flush to top edge of hero) -->
+  <!-- Green line before hero -->
   <div class="separator"></div>
 
   <!-- Hero Section -->
   <section class="hero">
+    <!-- .hero-overlay is in-flow, so hero’s height matches this content. -->
     <div class="hero-overlay">
       <h2>Save up to 75% on vehicle delivery</h2>
       <p>By comparing quotes from trusted companies</p>
       <div class="quote-form">
-        <select name="vehicle-type" id="vehicle-type">
+        <select id="vehicle-type">
           <option value="">Cars, motorcycles &amp; vehicles</option>
           <option value="car">Car</option>
           <option value="motorcycle">Motorcycle</option>
           <option value="van">Van</option>
         </select>
-        <select name="sub-category" id="sub-category">
+        <select id="sub-category">
           <option value="">Please select a subcategory</option>
           <option value="sedan">Sedan</option>
           <option value="suv">SUV</option>
@@ -58,7 +53,7 @@
     </div>
   </section>
 
-  <!-- Green separation line AFTER hero (flush to bottom edge of hero) -->
+  <!-- Green line after hero -->
   <div class="separator"></div>
 
   <!-- Steps Section -->
@@ -79,8 +74,8 @@
 
   <!-- Video / Illustration Section -->
   <section class="illustration-section">
-    <!-- This could be an embedded video; for now, just a placeholder image. -->
-    <img src="https://via.placeholder.com/600x300?text=Animated+Explainer+Video" alt="Explainer Video Illustration" />
+    <img src="https://via.placeholder.com/600x300?text=Explainer+Video+Illustration"
+      alt="Explainer Video Illustration" />
   </section>
 
   <!-- Why Use Us Section -->
@@ -96,10 +91,9 @@
     <p>&copy; 2025 Delivery Quote Compare. All rights reserved.</p>
   </footer>
 
-  <!-- Fixed floating "Free quote" button -->
+  <!-- Floating free quote button -->
   <button id="free-quote-btn">Free quote</button>
 
-  <!-- Link to external JavaScript -->
   <script src="script.js"></script>
 </body>
 

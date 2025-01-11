@@ -1,4 +1,4 @@
-/* Reset/normalize styles (optional) */
+/* Reset / Basic */
 * {
   margin: 0;
   padding: 0;
@@ -13,11 +13,11 @@ body {
 /* Header */
 header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  align-items: center;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
 }
 
 .logo {
@@ -31,11 +31,6 @@ header {
   height: 40px;
 }
 
-.logo h1 {
-  font-size: 20px;
-  color: #333;
-}
-
 .header-right {
   display: flex;
   flex-direction: column;
@@ -43,7 +38,6 @@ header {
   gap: 5px;
 }
 
-/* Put phone number at top, with bold text or bigger size if needed */
 .phone {
   font-size: 15px;
   font-weight: bold;
@@ -61,34 +55,54 @@ header {
   font-weight: 600;
 }
 
-/* Green separation line */
+/* Green line (separator) */
 .separator {
   background-color: #4cbb5b;
   height: 4px;
-  margin: 0;
-  border: none;
   width: 100%;
+  border: none;
+  margin: 0;
 }
 
-/* Hero section */
+/* Hero Section: 
+   - Use flex to center .hero-overlay horizontally.
+   - The height auto-adjusts to overlay’s content. */
 .hero {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  /* center child horizontally first */
   align-items: center;
-  justify-content: space-between;
+  /* and vertically if it’s smaller than hero */
   background: #ccc url('https://via.placeholder.com/1200x400') center/cover no-repeat;
-  min-height: 300px;
-  position: relative;
+  padding: 30px 0;
+  /* some vertical space around the overlay */
 }
 
+/* The overlay is in-flow (no absolute).
+   We'll shift it left by half its own width 
+   so that its RIGHT edge lines up with the hero’s center. */
 .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 40px 20px;
-  color: #fff;
+  position: relative;
+  /* still in flow */
   max-width: 500px;
-  margin: 40px;
+  /* fixed “quote section” width */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 40px 20px;
+  border-radius: 4px;
+  /* SHIFT IT LEFT by half of its own width: */
+  transform: translateX(-50%);
+  /* 
+    Explanation:
+      - The .hero container is centering this block’s CENTER at 50% 
+        of the container. 
+      - Then translateX(-50%) moves it left by half its own width, 
+        meaning the RIGHT edge ends up at the center.
+  */
 }
 
+/* Headings, paragraphs in overlay */
 .hero-overlay h2 {
   font-size: 32px;
   margin-bottom: 10px;
@@ -96,14 +110,16 @@ header {
 }
 
 .hero-overlay p {
-  font-size: 16px;
   margin-bottom: 20px;
+  font-size: 16px;
 }
 
+/* Quote form in overlay */
 .quote-form {
   background-color: #111;
   padding: 20px;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .quote-form select,
@@ -111,8 +127,8 @@ header {
   display: block;
   width: 100%;
   margin: 10px 0;
-  font-size: 16px;
   padding: 10px;
+  font-size: 16px;
 }
 
 .quote-form button {
@@ -127,12 +143,7 @@ header {
   background-color: #277227;
 }
 
-.small-note {
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-/* Steps Section */
+/* Steps, Illustrations, Why Use Us */
 .steps-container {
   display: flex;
   justify-content: space-around;
@@ -157,7 +168,6 @@ header {
   color: #666;
 }
 
-/* Video/Illustration Section */
 .illustration-section {
   display: flex;
   justify-content: center;
@@ -170,7 +180,6 @@ header {
   border: 1px solid #ccc;
 }
 
-/* Why Use Us */
 .why-use-us {
   background-color: #fff;
   margin: 40px 20px;
@@ -198,7 +207,7 @@ footer {
   margin-top: 40px;
 }
 
-/* Fixed floating "Free quote" button */
+/* Floating free-quote button */
 #free-quote-btn {
   position: fixed;
   bottom: 20px;
