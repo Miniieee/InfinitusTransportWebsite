@@ -1,21 +1,36 @@
-// Grabs the "Get Free Quotes" button
-const getQuotesBtn = document.getElementById('get-quotes-btn');
+// ========= MODAL LOGIC =========
+const modal = document.getElementById("myModal");
+const closeSpan = document.querySelector(".close");
+const cancelBtn = document.querySelector(".cancel-btn");
 
-getQuotesBtn.addEventListener('click', function () {
-  const vehicleType = document.getElementById('vehicle-type').value;
-  const subCategory = document.getElementById('sub-category').value;
+// Close modal on "X"
+closeSpan.addEventListener("click", () => {
+  modal.style.display = "none";
+});
 
-  if (!vehicleType || !subCategory) {
-    alert('Please select both vehicle type and subcategory before getting quotes.');
-  } else {
-    // In a real site, you might submit the form or redirect the user, etc.
-    alert(`Getting quotes for ${vehicleType} (${subCategory})...`);
+// Close modal on "Cancel"
+cancelBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Close modal if user clicks outside the modal-content
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
   }
 });
 
-// Floating "Free quote" button functionality
+// ========= BUTTONS THAT OPEN THE MODAL =========
+// 1) "Get Free Quotes" button in the hero section
+const getQuotesBtn = document.getElementById('get-quotes-btn');
+getQuotesBtn.addEventListener('click', function () {
+  // Simply open the modal
+  modal.style.display = "block";
+});
+
+// 2) Floating "Free quote" button
 const freeQuoteBtn = document.getElementById('free-quote-btn');
 freeQuoteBtn.addEventListener('click', function () {
-  // This could open a modal, scroll to the form, or do something else.
-  alert('Free quote button clicked!');
+  // Simply open the modal
+  modal.style.display = "block";
 });
