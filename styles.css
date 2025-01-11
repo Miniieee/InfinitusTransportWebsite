@@ -73,7 +73,7 @@ header {
   /* center child horizontally first */
   align-items: center;
   /* and vertically if it’s smaller than hero */
-  background: #ccc url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+  background: #ccc url(Images/AIshit.png) center/cover no-repeat;
   padding: 0px 0;
   /* some vertical space around the overlay */
 }
