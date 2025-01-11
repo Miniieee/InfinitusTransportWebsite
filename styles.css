@@ -38,29 +38,35 @@ header {
 
 .header-right {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+/* Put phone number at top, with bold text or bigger size if needed */
+.phone {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+}
+
+.header-right nav {
+  display: flex;
   gap: 15px;
 }
 
-.header-right a {
+.header-right nav a {
   text-decoration: none;
   color: #333;
   font-weight: 600;
-}
-
-.header-right .phone {
-  font-size: 14px;
-  color: #000;
 }
 
 /* Green separation line */
 .separator {
   background-color: #4cbb5b;
   height: 4px;
-  /* Remove margins so it touches the hero top/bottom exactly */
   margin: 0;
   border: none;
-  /* Ensure it spans full width */
   width: 100%;
 }
 
@@ -70,7 +76,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: #ccc url(Images/AIshit.png) center/cover no-repeat;
+  background: #ccc url('https://via.placeholder.com/1200x400') center/cover no-repeat;
   min-height: 300px;
   position: relative;
 }
