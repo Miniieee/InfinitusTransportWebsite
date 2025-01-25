@@ -148,6 +148,7 @@ header {
   color: #333;
 }
 
+/* === 6) ILLUSTRATION SECTION === */
 .illustration-section {
   display: flex;
   justify-content: center;
@@ -160,27 +161,70 @@ header {
   border: 1px solid #ccc;
 }
 
-.why-use-us {
-  position: relative;
-  left: 15%;
-  right: 15%;
-  width: 70%;
+/* === 7) TWO-COLUMN SECTIONS (WHY USE US & ABOUT US) === */
+.two-column-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 70%;
+  /* Adjust as needed for your layout */
+  margin: 40px auto;
+  /* Centers the section and adds space on top & bottom */
+  gap: 20px;
   background-color: #fff;
-  margin: 40px 20px;
   padding: 20px;
   border-radius: 8px;
 }
 
-.why-use-us h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+.two-column-section .text-content {
+  flex: 1;
 }
 
-.why-use-us p {
-  margin-bottom: 10px;
-  color: #666;
+.two-column-section .image-container {
+  flex: 1;
 }
+
+.two-column-section .image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* =========================================
+   GREEN BULLET POINTS
+   ========================================= */
+.green-bullets {
+  list-style: none;
+  /* Remove default bullet */
+  margin: 0;
+  padding-left: 1.5em;
+  /* Space for the custom bullet */
+}
+
+.green-bullets li {
+  position: relative;
+  margin-bottom: 0.5em;
+  /* Spacing between bullets */
+}
+
+/* Create a small green circle as the bullet */
+.green-bullets li::before {
+  content: '';
+  position: absolute;
+  left: -1.5em;
+  /* Align bullet to the left of the text */
+  top: 0.4em;
+  /* Adjust vertically to center bullet */
+  width: 0.6em;
+  height: 0.6em;
+  background-color: #4cbb5b;
+  /* Same green as your separator line */
+  border-radius: 50%;
+  /* Makes it a circle */
+  display: inline-block;
+}
+
 
 /* Footer */
 footer {
